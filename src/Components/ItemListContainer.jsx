@@ -1,8 +1,10 @@
 import React from 'react';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({greeting}) => {
     return (
-        <div></div>
+        <div style={{fontSize: "40px", backgroundColor: "lightblue", marginTop: "20px"}}>
+            {greeting}
+        </div>
     );
 }
 
