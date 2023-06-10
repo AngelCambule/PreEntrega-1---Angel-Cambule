@@ -1,13 +1,12 @@
 import './App.css';
-import NavBar from './Components/NavBar.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemListContainer from './Components/ItemListContainer';
+import MainRouter from './router/MainRouter';
 const App = () => {
 
   return (
     <div className="App">
-      <NavBar/>
-      <ItemListContainer greeting="????????"/>
+      <MainRouter/>
+    
     </div>
   );
 }
