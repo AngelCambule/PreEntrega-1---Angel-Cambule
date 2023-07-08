@@ -35,7 +35,6 @@ const home = () => {
       </div>
       
     </div>
-    <Destacados/>
     </div>
   )
 }
