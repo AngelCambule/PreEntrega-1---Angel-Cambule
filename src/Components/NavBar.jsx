@@ -8,12 +8,11 @@ export default class App extends Component {
     return (
       <Navbar expand="lg"  bg="secondary">
         <Link to="/"><Navbar.Brand href="#">DECO_SILLONESNYA</Navbar.Brand></Link>
-        <Navbar.Toggler target="#navbarNav" />
         <Collapse navbar id="navbarNav">
           <Navbar.Nav>
             <Link to="/" style={{textDecoration:"none"}}><Nav.ItemLink text="light" active>Inicio</Nav.ItemLink></Link>
             <Nav.Item dropdown>
-              <Nav.Link text="light" dropdownToggle>Productos</Nav.Link>
+              <Nav.Link text="light" style={{cursor:"pointer"}} dropdownToggle>Productos</Nav.Link>
               <Dropdown.Menu bg="secondary">
                 <Link to='/products/category/jardin' style={{textDecoration:"none"}}><Dropdown.Item text="light" bg="secondary" style={{textDecoration:"none"}}>Jardin</Dropdown.Item></Link>
                 <Link to='/products/category/interior' style={{textDecoration:"none"}}><Dropdown.Item bg="secondary" text="light">Interior</Dropdown.Item></Link>
@@ -31,6 +30,7 @@ export default class App extends Component {
           </Navbar.Nav>
         </Collapse>
         <CartWidget />
+        <Navbar.Toggler target="#navbarNav" style={{backgroundColor:"black"}}/>
       </Navbar>
     )
   }

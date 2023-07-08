@@ -23,7 +23,7 @@ const Category = () => {
         {catEncontrada.map ((filtProducts) => {
             return (
               
-              <Card key={filtProducts.id} style={{ width: '18rem', margin:"40px"}}>
+              <Card key={filtProducts.id} style={{ width: '18rem', margin:"40px", paddingTop:"100px"}}>
               <Card.Header bg="dark" text="light">{filtProducts.nombre}</Card.Header>
               <Link to={`/products/item/${filtProducts.id}`}><Card.Image src={filtProducts.img} style={{padding:"10px"}}/></Link>
               <Card.Body>

@@ -5,7 +5,9 @@ import Products from '../products.json';
 
 const ItemListContainer = () => {
     return (
-      <div><Link to='/products/category/jardin'><Button  primary style={{margin:"40px 10px 0px 10px"}}>Jardin</Button></Link>
+      <div>
+        <div style={{paddingTop:"100px"}}>
+        <Link to='/products/category/jardin'><Button  primary style={{margin:"40px 10px 0px 10px"}}>Jardin</Button></Link>
       <Link to='/products/category/interior'><Button primary style={{margin:"40px 10px 0px 10px"}}>Interior</Button></Link>
       <Link to='/products/category/mesa'><Button primary style={{margin:"40px 10px 0px 10px"}}>Mesas</Button></Link>
       <Link to='/products/category/combos'><Button danger style={{margin:"40px 10px 0px 10px"}}>Combos</Button></Link>
@@ -14,7 +16,7 @@ const ItemListContainer = () => {
         <div style={{display: "flex", flexWrap:"wrap" , justifyContent:"center"}}>
         {Products.map((producto) => {
             return (
-            <Card key={producto.id} style={{  width: '18rem', margin:"40px"}}>
+            <Card key={producto.id} style={{  width: '18rem', margin:"40px", background:"transparent"}}>
         <Card.Header bg="dark" text="light">{producto.nombre}</Card.Header>
         <Link to={`/products/item/${producto.id}`}><Card.Image  src={producto.img} style={{padding:"10px"}}/></Link>
         <Card.Body>
@@ -28,6 +30,8 @@ const ItemListContainer = () => {
         })}
       
       </div>
+        </div>
+        
       </div>
       )
   

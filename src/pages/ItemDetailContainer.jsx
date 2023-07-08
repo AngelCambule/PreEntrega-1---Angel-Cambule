@@ -2,11 +2,16 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import Products from '../products.json'
 import { Card } from 'bootstrap-4-react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import ButtonsCart from '../Components/ButtonsCart';
+import { useContext } from 'react';
+import { CartContext } from '../Context/CartContext';
 
 const ItemDetailContainer = () => {
+
+  const {state} = useContext(CartContext)
+  
     const handleVolver = () => {
       window.history.back()
     }
@@ -18,8 +23,8 @@ const ItemDetailContainer = () => {
     
     })  
   return (
-    
-    <div style={{display:"flex", justifyContent: "center"}}>
+
+    <div style={{display:"flex", justifyContent: "center", paddingTop:"100px"}}>
       <button onClick={handleVolver} style={{height:"30px", marginTop:"50px"}}><FontAwesomeIcon icon={faArrowLeft} /></button>
     <Card key={Products[pid].id} style={{width: '32rem', margin:"40px"}}>
               <Card.Header bg="dark" text="light"><h1>{Products[pid].nombre}</h1></Card.Header>
@@ -52,10 +57,8 @@ const ItemDetailContainer = () => {
                 <option value="PVC}">Cable PVC</option>
                 </select></div>
                 </div>
+                <ButtonsCart/>
               </Card.Body>
-              <Card.Footer bg="secondary">
-                <Card.Link  text="light" href="#">Agregar al Carrito</Card.Link>
-              </Card.Footer>
             </Card></div>
   )
 }
