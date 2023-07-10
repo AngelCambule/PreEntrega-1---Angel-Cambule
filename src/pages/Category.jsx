@@ -12,18 +12,13 @@ const Category = () => {
         elemento.category[1] === `${productCat}`)
     
   return (
-    <div><Link to='/products/category/jardin'><Button  primary style={{margin:"40px 10px 0px 10px"}}>Jardin</Button></Link>
-    <Link to='/products/category/interior'><Button primary style={{margin:"40px 10px 0px 10px"}}>Interior</Button></Link>
-    <Link to='/products/category/mesa'><Button primary style={{margin:"40px 10px 0px 10px"}}>Mesas</Button></Link>
-    <Link to='/products/category/combos'><Button danger style={{margin:"40px 10px 0px 10px"}}>Combos</Button></Link>
-    <Link to='/products/category/unidad'><Button danger style={{margin:"40px 10px 0px 10px"}}>Unidades</Button></Link>
-    <Link to='/products'><Button secondary style={{margin:"40px 10px 0px 10px"}}>Ver Todo</Button></Link>
+    <div>
     <div style={{display: "flex", flexWrap:"wrap" , justifyContent:"center"}}>
       
         {catEncontrada.map ((filtProducts) => {
             return (
               
-              <Card key={filtProducts.id} style={{ width: '18rem', margin:"40px", paddingTop:"100px"}}>
+              <Card key={filtProducts.id} style={{ width: '18rem', margin:"40px", marginTop:"150px"}}>
               <Card.Header bg="dark" text="light">{filtProducts.nombre}</Card.Header>
               <Link to={`/products/item/${filtProducts.id}`}><Card.Image src={filtProducts.img} style={{padding:"10px"}}/></Link>
               <Card.Body>

@@ -7,12 +7,7 @@ const ItemListContainer = () => {
     return (
       <div>
         <div style={{paddingTop:"100px"}}>
-        <Link to='/products/category/jardin'><Button  primary style={{margin:"40px 10px 0px 10px"}}>Jardin</Button></Link>
-      <Link to='/products/category/interior'><Button primary style={{margin:"40px 10px 0px 10px"}}>Interior</Button></Link>
-      <Link to='/products/category/mesa'><Button primary style={{margin:"40px 10px 0px 10px"}}>Mesas</Button></Link>
-      <Link to='/products/category/combos'><Button danger style={{margin:"40px 10px 0px 10px"}}>Combos</Button></Link>
-      <Link to='/products/category/unidad'><Button danger style={{margin:"40px 10px 0px 10px"}}>Unidades</Button></Link>
-      <Link to='/products'><Button secondary style={{margin:"40px 10px 0px 10px"}}>Ver Todo</Button></Link>
+        
         <div style={{display: "flex", flexWrap:"wrap" , justifyContent:"center"}}>
         {Products.map((producto) => {
             return (

@@ -53,7 +53,7 @@ body{
 }
 
 .categorymenu{
-    position: absolute;
+    position: fixed;
     top: 105px;
     padding: 50px 0px;
     height: 100vh;
@@ -61,14 +61,15 @@ body{
     border-right: 2px solid rgb(77, 26, 43);
     font-weight: bold;
     letter-spacing: 1px;
-    display: none;
+    z-index: 2;
+    width: 200px;
 }
-.categorysubmenu{
+.categorysubmenu, .categoryclose{
     color: rgb(77, 26, 43);
     padding: 15px 40px;
     border-bottom:1px solid;
 }
-.categorysubmenu:hover{
+.categorysubmenu:hover, .categoryclose:hover{
     background-color: rgba(121, 67, 85, 0.822);
     color: white;
 }
@@ -78,6 +79,11 @@ body{
     font-size: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid rgb(77, 26, 43);
+}
+.categoryclose {
+    margin-top: 75px;
+    border-top:1px solid;
+    cursor: pointer
 }
 .btnsnav:hover , .acc:hover{
     background-color: rgba(0, 0, 0, 0.35);
