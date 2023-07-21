@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import Products from '../products.json'
-import { Card, Button } from 'bootstrap-4-react';
+import { Card } from 'bootstrap-4-react';
+
+import {collection, getDocs, getFirestore} from 'firebase/firestore'
 
 const Category = () => {
     
     const {productCat} = useParams()
-    
-    const catEncontrada = Products.filter(elemento => 
-        elemento.category[0] === `${productCat}`||
-        elemento.category[1] === `${productCat}`)
+
+    const [productsData, setProductsData] = useState([])
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    const productCollection = collection(db, "products")
+    getDocs(productCollection).then((snapshot) => {
+      setProductsData(
+        snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+      );
+    });
+  }, []);
+
+    const catEncontrada = productsData.filter(elemento => 
+        elemento.category === `${productCat}` || 
+        elemento.subcategory === `${productCat}`)
     
   return (
     <div>

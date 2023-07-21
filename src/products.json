@@ -17,7 +17,8 @@
     "nombre": "Capri",
     "precio": 7400,
     "img": "https://d3ugyf2ht6aenh.cloudfront.net/stores/002/244/796/products/sillacapri3421-c4e3a96c2cf0f07bd816638684468817-640-0.jpg",
-    "category": ["jardin","unidad"],
+    "category": "jardin",
+    "subcategory": "unidad",
     "medidas": "Alto: 70cm | Largo: 65cm | Ancho: 80cm"
 },{
     "id": 4,

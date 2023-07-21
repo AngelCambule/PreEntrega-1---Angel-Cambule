@@ -7,6 +7,7 @@ import NotFound from '../pages/NotFound'
 import Category from '../pages/Category'
 import ItemDetailContainer from '../pages/ItemDetailContainer'
 import Footer from '../Components/Footer'
+import CreateProduct from '../Components/CreateProduct'
 
 const MainRouter = () => {
   return (
@@ -19,6 +20,8 @@ const MainRouter = () => {
         <Route exact path='/products' element={<ItemListContainer/>}></Route>
         <Route exact path='/products/item/:productId' element={<ItemDetailContainer/>}></Route>
         <Route exact path='/products/category/:productCat' element={<Category/>}></Route>
+        <Route exact path='/products/category/:productSubCat' element={<Category/>}></Route>
+        <Route exact path='/createproduct' element={<CreateProduct/>}></Route>
     </Routes>
     <Footer/>
     </Router>
