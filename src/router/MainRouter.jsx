@@ -8,6 +8,7 @@ import Category from '../pages/Category'
 import ItemDetailContainer from '../pages/ItemDetailContainer'
 import Footer from '../Components/Footer'
 import CreateProduct from '../Components/CreateProduct'
+import Cart from '../pages/Cart'
 
 const MainRouter = () => {
   return (
@@ -22,6 +23,7 @@ const MainRouter = () => {
         <Route exact path='/products/category/:productCat' element={<Category/>}></Route>
         <Route exact path='/products/category/:productSubCat' element={<Category/>}></Route>
         <Route exact path='/createproduct' element={<CreateProduct/>}></Route>
+        <Route exact path='/cart' element={<Cart/>}></Route>
     </Routes>
     <Footer/>
     </Router>

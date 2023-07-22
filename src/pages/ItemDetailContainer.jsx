@@ -67,10 +67,10 @@ const ItemDetailContainer = () => {
                 <option value="SIMILY">Simil Yute</option>
                 <option value="PVC}">Cable PVC</option>
                 </select></div>
-            <ButtonsCart />
+            <ButtonsCart productId={filteredProduct.id} />
           </Card.Body>
         </Card>
-      ) : ( // Show message if the product is not found
+      ) : ( 
         <p>El producto no existe o no se ha encontrado.</p>
       )}
     </div>

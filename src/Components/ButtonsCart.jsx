@@ -1,27 +1,39 @@
 import React, {useContext, useState} from 'react'
 import { CartContext } from '../Context/CartContext'
 
-const ButtonsCart = () => {
-    const [state, setState] = useContext(CartContext)
-    const [count, setCount] = useState(1)
+const ButtonsCart = ({productId}) => {
+    const [state, setState] = useState(1)
+    const {count, setCount} = useContext(CartContext)
 
     const handleAddClick = () => {
-        setCount(count + 1)
+        setState(state + 1)
     }
     const handleLessClick = () => {
-        if (count > 1){
-            setCount(count - 1)
-        }
+        if(state > 1)
+            setState(state - 1)
     }
     const handleAddtoCart = () => {
-        setState(state + count)
+        const existingProduct = count.products.find((p) => p.productId === productId)
+        if (existingProduct) {
+            existingProduct.qty += state;
+        }else{
+            const newProduct = {
+                productId,
+                qty: state
+            }
+            setCount((prevState) => ({
+                qtyItems: prevState.qtyItems + 1,
+                products: [...prevState.products, newProduct]
+            }))
+        }
+        
+    console.log(count.products)
     }
-
   return (
     <div style={{display:"flex", flexDirection:"column", alignItems:"center", marginTop:"20px"}}>
         <div style={{display:"flex", gap:"10px", marginBottom:"10px"}}>
             <button onClick={handleLessClick} style={{padding:"0px 6px"}}>-</button>
-            <span>{count}</span>
+            <span>{state}</span>
             <button onClick={handleAddClick} style={{padding:"0px 5px"}}>+</button>
             </div>
         <div style={{display:"flex"}}>
