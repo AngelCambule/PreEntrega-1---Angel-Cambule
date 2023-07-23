@@ -33,18 +33,18 @@ const ItemDetailContainer = () => {
   return (
     <div style={{ display: "flex", justifyContent: "center", paddingTop: "100px" }}>
       <button onClick={handleVolver} style={{ height: "30px", marginTop: "50px" }}>
-        <FontAwesomeIcon icon={faArrowLeft} />
+        <FontAwesomeIcon icon={faArrowLeft} style={{padding:"5px 10px"}} />
       </button>
       {isLoading ? ( 
         <p>Cargando...</p>
       ) : filteredProduct ? ( 
         <Card key={filteredProduct.id} style={{ width: '32rem', margin: "40px" }}>
-          <Card.Header bg="dark" text="light"><h1>{filteredProduct.nombre}</h1></Card.Header>
+          <Card.Header style={{backgroundColor: "rgb(77, 26, 43)"}} text="light"><h1>{filteredProduct.nombre}</h1></Card.Header>
           {filteredProduct.img && <Card.Image src={filteredProduct.img} style={{ padding: "10px" }} />}
           <Card.Body>
             <Card.Title><h2>${filteredProduct.precio} C/U</h2></Card.Title>
             <Card.Title>Medidas: <br />{filteredProduct.medidas}</Card.Title>
-            <div style={{border:"1px solid black", padding:"10px",display:"flex", flexDirection:"column"}}>
+            {/* <div style={{border:"1px solid black", padding:"10px",display:"flex", flexDirection:"column"}}>
                   <p>Color de la Estructura</p>
                     <select name="structureColorChoose" class="form-control-sm tipoEntregaId" size="1">
                       <option value="N">Negro</option>
@@ -66,7 +66,7 @@ const ItemDetailContainer = () => {
                 <select name="materialChoose" class="form-control-sm tipoEntregaId" size="1">
                 <option value="SIMILY">Simil Yute</option>
                 <option value="PVC}">Cable PVC</option>
-                </select></div>
+                </select></div> */}
             <ButtonsCart productId={filteredProduct.id} />
           </Card.Body>
         </Card>

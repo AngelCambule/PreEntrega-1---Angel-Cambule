@@ -9,6 +9,7 @@ import ItemDetailContainer from '../pages/ItemDetailContainer'
 import Footer from '../Components/Footer'
 import CreateProduct from '../Components/CreateProduct'
 import Cart from '../pages/Cart'
+import { Checkout } from '../pages/Checkout'
 
 const MainRouter = () => {
   return (
@@ -24,6 +25,7 @@ const MainRouter = () => {
         <Route exact path='/products/category/:productSubCat' element={<Category/>}></Route>
         <Route exact path='/createproduct' element={<CreateProduct/>}></Route>
         <Route exact path='/cart' element={<Cart/>}></Route>
+        <Route exact path='/checkout' element={<Checkout/>}></Route>
     </Routes>
     <Footer/>
     </Router>

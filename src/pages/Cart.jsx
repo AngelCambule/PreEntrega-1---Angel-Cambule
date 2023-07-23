@@ -3,8 +3,9 @@ import { collection, getDoc, doc, getFirestore } from "firebase/firestore";
 import { CartContext } from "../Context/CartContext";
 import { CartPaymentDetails } from "../Components/CartPaymentDetails";
 import { Loader } from "../Components/Loader";
-import { CartDetailCard } from "../Components/CartDetailCard";
 import { useNavigate } from "react-router-dom";
+import CartDetail from "../Components/CartDetail";
+import styles from '../Components/styles.module.css'
 
 //Esta función crea las referencias de los productos utilizando los IDs del itemCount.
 //Una vez hecho eso, con Promise.all,
@@ -27,18 +28,6 @@ const fetchProductsByIds = async (ids) => {
   });
 
   return products.filter((product) => product !== null);
-};
-
-const styles = {
-  cartWrapper: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    height: "100vh",
-  },
-  productCardDetail: {
-    width: "60%",
-  },
 };
 
 const Cart = () => {
@@ -75,25 +64,31 @@ const Cart = () => {
     navigate("/checkout", { state: total });
   };
 
+  console.log(count)
   return loading ? (
     <Loader />
   ) : (
     <div style={{paddingTop:"100px"}}>
         
-    <div style={styles.cartWrapper}>
-      <div style={styles.productCardDetail}>
+    <div className={styles.cartContainer}>
+      <div className={styles.cartItems}>
+        
         {productsData.map((product) => (
-          <CartDetailCard
+          <div>
+             <CartDetail
             key={product.id}
             product={product}
             qty={count.products.find(
-              (item) => item.productId === product.id
+              (p) => p.productId === product.id
             )}
           />
+          </div>
+          
         ))}
+        
       </div>
-      <div>
-        <CartPaymentDetails total={total} onClick={handleCheckoutClick} />
+      <div style={{}}>
+        <CartPaymentDetails  total={total} onClick={handleCheckoutClick} />
       </div>
     </div>
     </div>

@@ -9,7 +9,7 @@ import Sidebar from './Sidebar';
 
 
 const NavBar2 = () => {
-    const [showSidebar, setShowSidebar] = useState(false)
+    const [showSidebar, setShowSidebar] = useState(true)
 
     const handleSidebar = () => {
             setShowSidebar(!showSidebar)
@@ -17,7 +17,7 @@ const NavBar2 = () => {
 
   return (
     <div>
-        {showSidebar ? <Sidebar/> : null}
+        {!showSidebar ? <Sidebar/> : null}
         <div className={styles.navbar}>
         <div className={styles.navbarleft}>
             <Link style={{textDecoration:"none"}} to="/"><img class={styles.logoimg} src="https://i.imgur.com/oldlc1W.png" alt='XD'/></Link>
@@ -25,10 +25,10 @@ const NavBar2 = () => {
             <Link style={{textDecoration:"none"}} onClick={handleSidebar}><div className={styles.btnsnavproduct}>Productos <FontAwesomeIcon icon={faBars} className={styles.i}/></div></Link>
             <Link style={{textDecoration:"none"}} to="/seguimiento"><div className={styles.btnsnav}>Seguimiento</div></Link>
         </div>
-        <div className={styles.navbarcenter}>
+        {/* <div className={styles.navbarcenter}>
         <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.icon}/>
             <input type="text" placeholder="Buscar"/>
-        </div>
+        </div> */}
         <div className={styles.navbarright}>
             <Link style={{textDecoration:"none"}} to="/contacto"><div id="productos" className={styles.btnsnav}>Contacto</div></Link>
             <Link style={{textDecoration:"none"}} to="/reclamos"><div className={styles.btnsnav}>Reclamos</div></Link>
@@ -42,7 +42,6 @@ const NavBar2 = () => {
             </div>
         <CartWidget />
         </div>
-        <Sidebar/>
     </div>
 
     </div>

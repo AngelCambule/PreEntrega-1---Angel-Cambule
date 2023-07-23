@@ -5,7 +5,7 @@ export const CartPaymentDetails = ({total, onClick,}) => {
   return (
     <div className={styles.paymentDetails}>
         <span className={styles.total}>Total a pagar: ${total}</span>
-        <Button onClick={onClick} className={styles.continueButton}>Continuar</Button>
+        <Button onClick={onClick} className={styles.checkoutButton}>Continuar</Button>
     </div>
   )
 }

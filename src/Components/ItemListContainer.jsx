@@ -18,7 +18,7 @@ const ItemListContainer = () => {
       );
     });
   }, []);
-console.log(productsData)
+  
     return (
       <div>
         <div style={{paddingTop:"100px"}}>
