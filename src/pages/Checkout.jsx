@@ -7,28 +7,23 @@ import { PaymentSuccess } from "../Components/PaymentSuccess";
 import { Ring } from "@uiball/loaders";
 
 const styles = {
-  container: {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingTop:"140px"
-  },
-  paymentButton: {
-    borderRadius: "12px",
-    marginTop: "10px",
-    fontSize: "1rem",
-  },
-};
+    container: {
+      width: "100%",
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingTop:"140px"
+    },
+    paymentButton: {
+      borderRadius: "12px",
+      marginTop: "10px",
+      fontSize: "1rem",
+    },
+  };
+  
 
-// Para pruebas pueden usar:
-//Tarjeta: 4509953566233704
-//Fecha de vencimiento: 11/25
-//Codigo de seguridad: 123
-//Estos son datos de prueba que brinda mercado pago para desarrolladores
-//Mas info: https://www.mercadopago.com.ar/developers/es/docs/checkout-pro/additional-content/test-cards
 
 export const Checkout = () => {
   const [loading, setLoading] = React.useState(false);
@@ -42,7 +37,7 @@ export const Checkout = () => {
   const total = location.state;
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Para ver los datos ingresados
+    
     const name = e.target.name.value;
     const cel = e.target.cel.value;
     const dni = e.target.dni.value;

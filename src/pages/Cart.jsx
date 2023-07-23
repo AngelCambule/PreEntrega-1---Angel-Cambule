@@ -7,9 +7,6 @@ import { useNavigate } from "react-router-dom";
 import CartDetail from "../Components/CartDetail";
 import styles from '../Components/styles.module.css'
 
-//Esta función crea las referencias de los productos utilizando los IDs del itemCount.
-//Una vez hecho eso, con Promise.all,
-//devuelve el array resultante de ejecutar todas las llamadas segun la cantidad de productos (ids) agregados al carrito
 const fetchProductsByIds = async (ids) => {
   const db = getFirestore();
   const productRefs = ids.map((id) => doc(collection(db, "products"), id));
@@ -18,7 +15,6 @@ const fetchProductsByIds = async (ids) => {
     productRefs.map((productRef) => getDoc(productRef))
   );
 
-  // Aqui hacemos el return de los productos y verificamos que exista, podemos usar length también. Se puede mejorar
   const products = productSnapshots.map((productSnapshot) => {
     if (productSnapshot.exists()) {
       return { id: productSnapshot.id, ...productSnapshot.data() };
@@ -44,7 +40,6 @@ const Cart = () => {
       .then(() => setLoading(false));
   }, [count.products]);
 
-  //Función complementaria para poder encontrar el id según el id enviado en el calculo del total
   const findQtyByProductId = (productId) => {
     const item = count.products.find(
       (item) => item.productId === productId
@@ -52,7 +47,6 @@ const Cart = () => {
     return item ? item.qty : 0;
   };
 
-  //Calcula el total macheando el id de productsData con itemCount para respetar las cantidades
   const total = productsData
     .map((product) => product.precio * findQtyByProductId(product.id))
     .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
